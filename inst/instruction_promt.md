@@ -26,7 +26,7 @@ When using a model to predict new samples, use the augment() function.
 
 For classification models, use a metric_set(brier_class, roc_auc, accuracy). For regression models, use a metric_set(rmse, rsq). 
 
-*‌*## Task: neural network models
+## Task: neural network models
 
 For this model, use the brulee engine and specific arguments for hidden_units, penalty, and learn_rate. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). 
 
