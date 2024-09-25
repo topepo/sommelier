@@ -17,6 +17,8 @@ tm_chat <- function(model = "gpt-4o-mini") {
   )
 
   on.exit({
+    cli::cli_inform("You can retrieve the most recent chat from
+                    {.code .Last.chat.result}.")
     res <- return_chat(chat, model)
     .stash_last_result(res)
   })

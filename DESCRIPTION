@@ -15,6 +15,7 @@ Suggests:
     spelling
 Language: en-US
 Imports: 
+    cli,
     elmer,
     purrr,
     tibble
