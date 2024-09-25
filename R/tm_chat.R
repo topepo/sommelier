@@ -16,14 +16,12 @@ tm_chat <- function(model = "gpt-4o-mini") {
     echo = TRUE
   )
 
-  on.exit({
-    cli::cli_inform("You can retrieve the most recent chat from
-                    {.code .Last.chat.result}.")
-    res <- return_chat(chat, model)
-    .stash_last_result(res)
-  })
+  tryCatch(
+    chat$console(),
+    interrupt = function(cnd) NULL
+  )
 
-  chat$console()
+  invisible(chat)
 }
 
 # TODO
