@@ -8,15 +8,15 @@ Review these tasks carefully and follow them to create the tidymodels app.
 
 ## Task: creating resamples
 
-When creating resampling objects, use the vfold_cv function with the v = 10 argument.
+When creating resampling objects, use the vfold_cv function with the v = 10 argument. Set the random number seed to a random integer beforehand.
 
 ## Task: creating spline terms
 
-Use a recipe with step_spline_natural.
+Use a recipe with step_spline_natural. Do not load the recipes package.
 
 ## Task: impute missing predictor values
 
-When there are missing predictor values, use a recipe. The first step in the recipe should be step_impute_bag(all_predictors()).
+When there are missing predictor values, use a recipe. The first step in the recipe should be step_impute_bag(all_predictors()). Do not load the recipes package.
 
 ## Task: Predicting samples
 
@@ -58,5 +58,4 @@ For this model, use the mars function with no arguments. Combine the model with 
 
 ## Task: tune a model
 
-When the user asks to tune a model, use tune_grid with the option grid = 25 instead of defining the parameter grid. Set the random number seed to a random integer before fitting the model.
-
+When the user asks to tune a model, use tune_grid with the option grid = 25. Do not create a grid. Set the random number seed to a random integer before fitting the model. After tuning the model, do not finalize the workflow. Use fit_best() to get the model fit for the training set.
