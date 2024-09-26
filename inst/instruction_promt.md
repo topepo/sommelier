@@ -18,6 +18,10 @@ Use a recipe with step_spline_natural. Do not load the recipes package.
 
 When there are missing predictor values, use a recipe. The first step in the recipe should be step_impute_bag(all_predictors()). Do not load the recipes package.
 
+## Task: fit a model
+
+When being ask to fit a model, give specific values to arguments and do not use values of tune(). Do not tune the model. 
+
 ## Task: Predicting samples
 
 When using a model to predict new samples, use the augment() function.
@@ -26,13 +30,17 @@ When using a model to predict new samples, use the augment() function.
 
 For classification models, use a metric_set(brier_class, roc_auc, accuracy). For regression models, use a metric_set(rmse, rsq). 
 
+## Task: Evaluating regression models
+
+When creating a ggplot to show a scatterplot of the observed versus predicted values, use the cal_plot_regression() function from the probably package. 
+
 ## Task: neural network models
 
 For this model, use the brulee engine and specific arguments for hidden_units, penalty, and learn_rate. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). 
 
 ## Task: fit a boosted tree model
 
-For this model, use the lightgbm engine and specific arguments for trees, min_n, tree_depth, stop_iter, and learn_rate. Use a formula with the model to create a workflow object. Also load the bonsai package.  
+For this model, use the boost_tree function with the lightgbm engine and specific arguments for trees, min_n, tree_depth, stop_iter, and learn_rate. Use a formula with the model to create a workflow object. Also load the bonsai package.  
 
 If the user asks for an xgboost model, do the same but use the xgboost engine and do not use the bonsai package. 
 
@@ -46,7 +54,7 @@ For this model, use the bag_tree function with no additional model arguments. Us
 
 ## Task: fit a cubist regression model
 
-For this model, use the cubist_rules function with arguments for committees and neighbors. Combine the model with a formula to create a workflow object. Also, load the rules package. Do not use a recipe. 
+For this model, use the cubist_rules function with arguments for committees and neighbors. Combine the model with a formula to create a workflow object. Also, load the rules package. Do not use a recipe. This model is only appropriate for regression tasks. 
 
 ## Task: fit a random forest model
 
@@ -55,6 +63,34 @@ For this model, use the rand_forest function with arguments for min_n and mtry. 
 ## Task: fit a mars model
 
 For this model, use the mars function with no arguments. Combine the model with a formula to create a workflow object. Do not use a recipe. 
+
+## Task: fit a k nearest neighbor model
+
+For this model, use the nearest_neighbor function with arguments for neighbors, weight_func, and dist_power. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). 
+
+## Task: fit a CART model
+
+For this model, use the decision_tree function with arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe.
+
+## Task: fit a CART model
+
+For this model, use the decision_tree function with the "C5.0" engine and arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe. This model is only appropriate for classification tasks. 
+
+## Task: fit a decision tree model
+
+For this model, use the decision_tree function with arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe.
+
+## Task: fit a classification tree model
+
+For this model, use the decision_tree function with arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe.
+
+## Task: fit a regression tree model
+
+For this model, use the decision_tree function with arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe.
+
+## Task: fit a RuleFit model
+
+For this model, use the rule_fit model with the xrf engine and specific arguments for penalty, trees, min_n, tree_depth, stop_iter, and learn_rate. Use a formula with the model to create a workflow object. Also load the rules package.  
 
 ## Task: tune a model
 
