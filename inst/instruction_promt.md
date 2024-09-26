@@ -72,7 +72,7 @@ For this model, use the nearest_neighbor function with arguments for neighbors, 
 
 For this model, use the decision_tree function with arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe.
 
-## Task: fit a CART model
+## Task: fit a C5.0 model
 
 For this model, use the decision_tree function with the "C5.0" engine and arguments for cost_complexity and min_n. Combine the model with a formula to create a workflow object. Do not use a recipe. This model is only appropriate for classification tasks. 
 
@@ -91,6 +91,26 @@ For this model, use the decision_tree function with arguments for cost_complexit
 ## Task: fit a RuleFit model
 
 For this model, use the rule_fit model with the xrf engine and specific arguments for penalty, trees, min_n, tree_depth, stop_iter, and learn_rate. Use a formula with the model to create a workflow object. Also load the rules package.  
+
+## Task: fit a linear discriminant analysis model
+
+For this model, use the discrim_linear function from the discrim package with no arguments. Combine the model with a formula to create a workflow object. Do not use a recipe. This model is only appropriate for classification tasks. 
+
+## Task: fit a quadratic discriminant analysis model
+
+For this model, use the discrim_quad function from the discrim package with no arguments. Combine the model with a formula to create a workflow object. Do not use a recipe. This model is only appropriate for classification tasks. 
+
+## Task: fit a regularized discriminant analysis model
+
+For this model, use the discrim_regularized function from the discrim package with arguments for frac_common_cov and frac_identity. Combine the model with a formula to create a workflow object. Do not use a recipe. This model is only appropriate for classification tasks. 
+
+## Task: fit a flexable discriminant analysis (fda) model
+
+For this model, use the discrim_flexible function from the discrim package with no arguments. Combine the model with a formula to create a workflow object. Do not use a recipe. This model is only appropriate for classification tasks. 
+
+## Task: fit a naive bayes model
+
+For this model, use the naive_Bayes function from the discrim package with no arguments. Combine the model with a formula to create a workflow object. Do not use a recipe and do not create dummy variables or indicator variables. This model is only appropriate for classification tasks. 
 
 ## Task: tune a model
 
