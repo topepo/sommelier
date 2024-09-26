@@ -36,7 +36,7 @@ When creating a ggplot to show a scatterplot of the observed versus predicted va
 
 ## Task: neural network models
 
-For this model, use the brulee engine and specific arguments for hidden_units, penalty, and learn_rate. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). 
+For this model, use the brulee engine and specific arguments for hidden_units, penalty, and learn_rate. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). Note that this model can be created with several other engines such as "nnet" and "h2o".
 
 ## Task: fit a boosted tree model
 
@@ -58,7 +58,7 @@ For this model, use the cubist_rules function with arguments for committees and 
 
 ## Task: fit a random forest model
 
-For this model, use the rand_forest function with arguments for min_n and mtry. Set trees = 1000. Use a formula with the model to create a workflow object. Do not use a recipe. Set the random number seed to a random integer before fitting the model.
+For this model, use the rand_forest function with the default engine and arguments for min_n and mtry. Set trees = 1000. Use a formula with the model to create a workflow object. Do not use a recipe. Set the random number seed to a random integer before fitting the model. Note that this model can be created with several other engines such as "randomForest" and "h2o".
 
 ## Task: fit a mars model
 
