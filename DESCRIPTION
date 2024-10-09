@@ -16,8 +16,12 @@ Suggests:
 Language: en-US
 Imports: 
     cli,
+    dplyr,
+    e1071,
     elmer,
     purrr,
-    tibble
+    recipes,
+    tibble,
+    vctrs
 Remotes:
     hadley/elmer
