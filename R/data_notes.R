@@ -17,8 +17,23 @@ add_notes <- function(x, notes) {
   x
 }
 
+check_data_name <- function(x) {
+  alt_x <- make.names(x)
+  flag <- !identical(x, alt_x)
+  flag <- flag | identical(x, ".")
+  if (flag) {
+    cli::cli_warn("The dataset name passed to the function was {.val {x}}. This
+                  does not appear to be a valid object name. The chat output
+                  will refer to the data frame as {.val unknown_name} in the
+                  output.")
+    x <- "unknown_name"
+  }
+  x
+}
+
 task_note <- function(predictors, outcome, original_call) {
   data_name <- deparse(original_call$data)
+  data_name <- check_data_name(data_name)
   outcome_name <- names(outcome)
   y <- outcome[[outcome_name]]
 
