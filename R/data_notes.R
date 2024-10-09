@@ -1,5 +1,5 @@
-data_notes <- function(predictors, outcome = NULL, original_call) {
-  notes <- task_note(predictors, outcome,original_call)
+data_notes <- function(predictors, outcome, original_call) {
+  notes <- task_note(predictors, outcome, original_call)
   notes <- c(notes, zv_notes(predictors))
   notes <- c(notes, quant_notes(predictors))
 
@@ -37,10 +37,12 @@ task_note <- function(predictors, outcome, original_call) {
   outcome_name <- names(outcome)
   y <- outcome[[outcome_name]]
 
+  lvls <- character(0)
   if (inherits(y, "factor")) {
     lvls <- levels(y)
     num_lvls <- length(lvls)
     type <- paste("a classification model (with", num_lvls, "classes)")
+    lvls <- cli::format_inline(" with class levels: {.val {lvls}}")
 
   } else if (inherits(y, "Surv")) {
     type <- paste("a censored regression model")
@@ -48,11 +50,14 @@ task_note <- function(predictors, outcome, original_call) {
     type <- paste("a regression model")
   }
 
+  num_quant <- length(quant_predictor_find(predictors))
+  num_qual <- length(qual_predictor_find(predictors))
+
   cli::format_inline("The goal of this task is to produce {type} using the
                       {.val {data_name}} data frame that contains an  outcome
-                      column called {.val {outcome_name}} and {ncol(predictors)}
-                      predictors. Please confine your answers to this specific
-                      data set and outcome column.", keep_whitespace = FALSE)
+                      column called {.val {outcome_name}}{lvls}. There are {num_quant}
+                      numeric predictor{?s}, and {num_qual} categorical/factor
+                      predictor{?s}.", keep_whitespace = FALSE)
 }
 
 var_msg <- function(cols, msg = character(0)) {
@@ -140,5 +145,6 @@ quant_notes <- function(predictors, skew = 1, max_miss = 0.3, pca_threshold = .9
     notes <- c(notes, cor_note)
   }
 
-  notes
+
+  c(notes, "Please confine your answers to this specific data set and outcome column.")
 }

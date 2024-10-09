@@ -12,6 +12,10 @@ DATANOTES
 
 When creating resampling objects, use the vfold_cv function with the v = 10 argument. Set the random number seed to a random integer beforehand.
 
+## Task: creating a validation set
+
+Use the `initial_validation_split()` function to create the split and follow that with a call to `validation_set()` to use the split with `fit_resamples()`. Use the `control_resamples()` function with the options `save_pred = TRUE` and `save_workflow = TRUE`. 
+
 ## Task: creating spline terms
 
 Use a recipe with step_spline_natural. Do not load the recipes package.
