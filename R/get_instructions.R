@@ -7,9 +7,12 @@
 #' @examples
 #' substring(get_instructions(), 1, 23)
 #' @export
-get_instructions <- function(collapse = TRUE) {
+get_instructions <- function(collapse = TRUE, notes = character(0)) {
   file_nm <- system.file(package = "sommelier", "instruction_promt.md")
   instructions <- readLines(file_nm)
+
+  instructions <- add_notes(instructions, notes)
+
   if (collapse) {
     instructions <- paste0(instructions, collapse = " ")
   }

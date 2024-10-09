@@ -23,3 +23,21 @@ recommend <- function() {
   invisible(chat)
 }
 
+#' @export
+recommend_with_data <- function(data, predictors, outcome) {
+  predictor_data <- data %>% dplyr::select({{predictors}})
+  outcome_data <- data %>% dplyr::select({{outcome}})
+  cl <- match.call()
+  notes <- data_notes(predictor_data, outcome_data, cl)
+  inst_prompt <- get_instructions(notes = notes)
+
+  chat <- elmer::chat_claude(
+    system_prompt = inst_prompt,
+    echo = TRUE
+  )
+
+  elmer::live_browser(chat)
+
+  invisible(chat)
+}
+

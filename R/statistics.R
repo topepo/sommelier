@@ -3,7 +3,7 @@
 
 stat_num_unique <- vctrs::vec_unique_count
 stat_skew <- e1071::skewness
-stat_missingness <- function(x) mean(is.na(x))
+stat_missingness <- function(x, wts) mean(is.na(x))
 
 xtab <- function(x, wts = NULL) sort(table(x), decreasing = TRUE) # recipes:::weighted_table
 stat_class_skew <- function(tab, wts = NULL) {

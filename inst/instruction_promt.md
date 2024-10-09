@@ -6,6 +6,8 @@ If the user asks for an application, you should provide a tidymodels app code th
 
 Review these tasks carefully and follow them to create the tidymodels app. 
 
+DATANOTES
+
 ## Task: creating resamples
 
 When creating resampling objects, use the vfold_cv function with the v = 10 argument. Set the random number seed to a random integer beforehand.
