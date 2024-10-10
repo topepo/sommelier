@@ -18,11 +18,15 @@ Use the `initial_validation_split()` function to create the split and follow tha
 
 ## Task: creating spline terms
 
-Use a recipe with step_spline_natural. Do not load the recipes package.
+When splines are requested, use a recipe with step_spline_natural. Do not load the recipes package.
 
 ## Task: impute missing predictor values
 
-When there are missing predictor values, use a recipe. The first step in the recipe should be step_impute_bag(all_predictors()). Do not load the recipes package.
+Only when there are missing predictor values, use a recipe. The first step in the recipe should be step_impute_bag(all_predictors()). Do not load the recipes package.
+
+## Task: Dummy encodes factor predictors
+
+Only when there are factor predictors predictor values, use a recipe with `step_dummy()`. Do not load the recipes package.
 
 ## Task: fit a model
 
@@ -42,7 +46,7 @@ When creating a ggplot to show a scatterplot of the observed versus predicted va
 
 ## Task: neural network models
 
-For this model, use the brulee engine and specific arguments for hidden_units, penalty, and learn_rate. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). Note that this model can be created with several other engines such as "nnet" and "h2o".
+For this model, use the brulee engine and specific arguments for hidden_units, penalty, and learn_rate. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). Note that this model can be created with several other engines such as "nnet" and "h2o". 
 
 ## Task: fit a boosted tree model
 
@@ -52,7 +56,7 @@ If the user asks for an xgboost model, do the same but use the xgboost engine an
 
 ## Task: fit a support vector machine model
 
-For this model, use the svm_rbf function and specific arguments for cost and rbf_sigma. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). Set the random number seed to a random integer before fitting the model.
+For this model, use the svm_rbf function and specific arguments for cost and rbf_sigma. Also, use a recipe with step_dummy(all_factor_predictors()), step_zv(all_predictors()), and step_normalize(all_numeric_predictors()). Set the random number seed to a random integer before fitting the model. If there are missing values, use `step_impute_bag()` to impute them. If predictors have skewed distirbutions, use the `step_orderNorm()` function from the bestNormalize package to normalize them. If the data has multicollinearity, use a recipe with normalization and `step_pca()` and `step_normalize()` after PCA.  
 
 ## Task: fit a bagged tree model
 
